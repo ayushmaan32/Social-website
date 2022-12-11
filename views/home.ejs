@@ -8,34 +8,37 @@
 </head>
 <body>
     <%- include('_header'); -%> -->
-    <link rel="stylesheet" href="/css/home.css">
-    <h1> Cordial / <%= title %> </h1>
+<link rel="stylesheet" href="/css/home.css">
+<h1> Cordial / <%= title %>
+</h1>
 
-    <section id="feed-posts">
-        <h4>Posts</h4>
+<section id="feed-posts">
+    <h4>Posts</h4>
+      <% if(locals.user) { %>
         <form action="/posts/create" id="new-post-form" method="post">
-            <textarea name="content"  cols="30" rows="3" placeholder="Type Here..."></textarea>
-            <input type="submit" value="Post">
-        </form>
-    </section>
-    
-    <div id="post-list-container">
-        <ul>
-            <% for(post of posts) { %>
+        <textarea name="content" cols="30" rows="3" placeholder="Type Here..."></textarea>
+        <input type="submit" value="Post">
+    </form>
+    <% } %>
+</section>
+
+<div id="post-list-container">
+    <ul>
+        <% for(post of posts) { %>
             <li>
-              <p>
-                <%= post.content %> 
-                <br>
-                <small>
-                   <%= post.user %>
-                </small>
-              </p>
-                
-                
+                <p>
+                    <%= post.content %>
+                        <br>
+                        <small>
+                            <%= post.user %>
+                        </small>
+                </p>
+
+
             </li>
             <% } %>
-        </ul>
-    </div>
+    </ul>
+</div>
 
 
 
@@ -63,6 +66,6 @@
 
 
 
-    <!-- <%- include('_footer'); -%>
+<!-- <%- include('_footer'); -%>
 </body>
 </html> -->
