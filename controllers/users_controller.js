@@ -9,8 +9,8 @@ module.exports.profile = function(req,res){
     // return res.end('<h1>profile is visible</h1>');
 
     User.findById(req.params.id, function(err,user){
-        return res.render('users', {
-            title : 'Users ',
+        return res.render('user_profile', {
+            title : 'User Profile',
             profile_user: user
         });
     })
